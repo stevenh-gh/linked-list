@@ -26,6 +26,16 @@ class LinkedList
     temp.next_node = node
   end
 
+  def prepend(value)
+    node = Node.new
+
+    node.value = value
+
+    node.next_node = head
+
+    self.head = node
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -48,4 +58,7 @@ list.head.value = 10
 list.append(20)
 list.append(30)
 list.append(40)
+list.prepend(5)
+list.prepend(10_000)
+list.prepend('head')
 p list.to_s
