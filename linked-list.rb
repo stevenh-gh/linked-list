@@ -25,4 +25,27 @@ class LinkedList
 
     temp.next_node = node
   end
+
+  def to_s
+    str = "( #{head.value} )"
+
+    temp = head.next_node
+
+    loop do
+      str += temp.nil? ? ' -> nil' : " -> ( #{temp.value} )"
+
+      break if temp.nil?
+
+      temp = temp.next_node
+    end
+
+    str
+  end
 end
+
+list = LinkedList.new
+list.head.value = 10
+list.append(20)
+list.append(30)
+list.append(40)
+p list.to_s
