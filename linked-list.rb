@@ -36,6 +36,22 @@ class LinkedList
     self.head = node
   end
 
+  def size
+    count = 0
+
+    temp = head
+
+    until temp.nil?
+
+      temp = temp.next_node
+
+      count += 1
+
+    end
+
+    count
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -62,3 +78,4 @@ list.prepend(5)
 list.prepend(10_000)
 list.prepend('head')
 p list.to_s
+p list.size #=>7 atm
