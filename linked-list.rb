@@ -122,6 +122,27 @@ class LinkedList
     nil
   end
 
+  def insert_at(value, index)
+    return nil if index > size || index.negative?
+
+    if index == 0
+      prepend value
+      return
+    end
+
+    new_node = Node.new
+
+    new_node.value = value
+
+    old_node = at(index)
+
+    new_node.next_node = old_node
+
+    prev_node = at(index - 1)
+
+    prev_node.next_node = new_node
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -148,9 +169,10 @@ list.append(40)
 list.prepend(5)
 list.prepend(10_000)
 list.prepend('head')
-p list.to_s
+# p list.to_s
 # p list.pop
 # p list.to_s
+# p list.size
 
 # p list.contains?('head')
 # p list.contains?(40)
@@ -167,3 +189,10 @@ p list.to_s
 # p list.at 6
 
 # p list.at nil
+# list.insert_at('newnode', 2)
+# p list.to_s
+
+list.insert_at('nnnnnnnnnnn', 0)
+list.insert_at('new 777777', 7)
+p list.to_s
+p list.size
