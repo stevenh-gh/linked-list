@@ -55,6 +55,26 @@ class LinkedList
     count
   end
 
+  def at(index)
+    return head if index == 0
+
+    idx = 0
+
+    temp = head
+
+    loop do
+      return nil if temp.nil? || idx.negative?
+
+      temp = temp.next_node
+
+      idx += 1
+
+      break if idx == index
+    end
+
+    temp
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -74,7 +94,7 @@ end
 
 list = LinkedList.new
 list.head.value = 10
-p list.tail
+# p list.tail
 list.append(20)
 list.append(30)
 list.append(40)
@@ -82,5 +102,10 @@ list.prepend(5)
 list.prepend(10_000)
 list.prepend('head')
 p list.to_s
-p list.size #=>7 atm
-p list.tail
+# p list.size #=>7 atm
+# p list.tail
+# p list.at 1000
+# p list.at 0
+# p list.at(-1)
+# p list.at 1
+# p list.at 4
