@@ -8,10 +8,11 @@ class Node
 end
 
 class LinkedList
-  attr_accessor :head
+  attr_accessor :head, :tail
 
   def initialize
     @head = Node.new
+    @tail = head
   end
 
   def append(value)
@@ -24,6 +25,8 @@ class LinkedList
     temp = temp.next_node until temp.next_node.nil?
 
     temp.next_node = node
+
+    self.tail = node
   end
 
   def prepend(value)
@@ -52,14 +55,6 @@ class LinkedList
     count
   end
 
-  def tail
-    temp = head.next_node
-
-    temp = temp.next_node until temp.next_node.nil?
-
-    temp
-  end
-
   def to_s
     str = "( #{head.value} )"
 
@@ -79,6 +74,7 @@ end
 
 list = LinkedList.new
 list.head.value = 10
+p list.tail
 list.append(20)
 list.append(30)
 list.append(40)
