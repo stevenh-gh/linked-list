@@ -75,6 +75,23 @@ class LinkedList
     temp
   end
 
+  def pop
+    back_node = head
+    front_node = head.next_node
+
+    until front_node.next_node.nil?
+
+      back_node = front_node
+      front_node = front_node.next_node
+
+    end
+
+    end_node = front_node
+    back_node.next_node = nil
+
+    end_node
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -102,10 +119,5 @@ list.prepend(5)
 list.prepend(10_000)
 list.prepend('head')
 p list.to_s
-# p list.size #=>7 atm
-# p list.tail
-# p list.at 1000
-# p list.at 0
-# p list.at(-1)
-# p list.at 1
-# p list.at 4
+p list.pop
+p list.to_s
