@@ -90,6 +90,20 @@ class LinkedList
     end_node = front_node
   end
 
+  def contains?(value)
+    temp = head
+
+    until temp.nil?
+
+      return true if temp.value == value
+
+      temp = temp.next_node
+
+    end
+
+    false
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -117,5 +131,10 @@ list.prepend(5)
 list.prepend(10_000)
 list.prepend('head')
 p list.to_s
-p list.pop
-p list.to_s
+# p list.pop
+# p list.to_s
+
+# p list.contains?('head')
+# p list.contains?(40)
+# p list.contains?('none')
+# p list.contains?(10_000)
