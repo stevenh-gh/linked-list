@@ -104,6 +104,24 @@ class LinkedList
     false
   end
 
+  def find(value)
+    index = 0
+
+    temp = head
+
+    until temp.nil?
+
+      return index if temp.value == value
+
+      temp = temp.next_node
+
+      index += 1
+
+    end
+
+    nil
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -138,3 +156,14 @@ p list.to_s
 # p list.contains?(40)
 # p list.contains?('none')
 # p list.contains?(10_000)
+
+# p list.find('head')
+# p list.find(10_000)
+# p list.find 40
+
+# p list.at 0
+# p list.at 1
+
+# p list.at 6
+
+# p list.at nil
