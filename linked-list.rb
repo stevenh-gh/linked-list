@@ -86,10 +86,8 @@ class LinkedList
 
     end
 
-    end_node = front_node
     back_node.next_node = nil
-
-    end_node
+    end_node = front_node
   end
 
   def to_s
