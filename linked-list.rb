@@ -125,10 +125,7 @@ class LinkedList
   def insert_at(value, index)
     return nil if index > size || index.negative?
 
-    if index == 0
-      prepend value
-      return
-    end
+    (prepend value; return) if index == 0
 
     new_node = Node.new
 
