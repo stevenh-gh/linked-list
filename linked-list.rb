@@ -140,6 +140,22 @@ class LinkedList
     prev_node.next_node = new_node
   end
 
+  def remove_at(index)
+    return nil if index > size || index.negative?
+
+    node = at index
+
+    (self.head = head.next_node; return) if index == 0
+
+    prev_node = at index - 1
+
+    next_node = at index + 1
+
+    prev_node.next_node = next_node
+
+    node
+  end
+
   def to_s
     str = "( #{head.value} )"
 
@@ -193,3 +209,10 @@ list.insert_at('nnnnnnnnnnn', 0)
 list.insert_at('new 777777', 7)
 p list.to_s
 p list.size
+
+list.remove_at(3)
+p list.to_s
+p list.size
+
+list.remove_at(0)
+p list.to_s
